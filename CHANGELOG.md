@@ -15,3 +15,8 @@
   - Search for items by name.
 
 
+-------------------------------------
+## Version 1.2
+- 2023-10-20
+- Fixed user-requested features of using words instead of writing numbers (Try and Except put inside of the add_item() function and remove_item() function. 
+
