@@ -3,30 +3,36 @@ inventory = {}
 
 # Function to add items to the inventory.
 def add_item():
-    name = input("Enter the item name: ")
-    quantity = int(input("Enter the quantity: ")
-    
-    # Check if the item is already in the inventory and update its quantity.
-    if name in inventory:
-        inventory[name] += quantity
-    else:
-        # If the item is not in the inventory, add it with the specified quantity.
-        inventory[name] = quantity
+    try:
+        name = input("Enter the item name: ")
+        quantity = int(input("Enter the quantity: ")) ## Needs closed parenthesis
+        
+        # Check if the item is already in the inventory and update its quantity.
+        if name in inventory:
+            inventory[name] += quantity
+        else:
+            # If the item is not in the inventory, add it with the specified quantity.
+            inventory[name] = quantity
+    except ValueError:
+        print("Try again, you entered a word not a number.") # Added try and except to add_item(), in case user types the words of the number instead of the number itself
 
 # Function to remove items from the inventory.
 def remove_item():
-    name = input("Enter the item name to remove: ")
-    
-    # Check if the item is in the inventory.
-    if name in inventory:
-        quantity = int(input("Enter the quantity to remove: "))
-        # Check if there is enough of the item in the inventory to remove.
-        if quantity <= inventory[name]:
-            inventory[name] -= quantity
+    try:
+        name = input("Enter the item name to remove: ")
+        
+        # Check if the item is in the inventory.
+        if name in inventory:
+            quantity = int(input("Enter the quantity to remove: "))
+            # Check if there is enough of the item in the inventory to remove.
+            if quantity <= inventory[name]:
+                inventory[name] -= quantity
+            else:
+                print("Not enough of that item in the inventory.")
         else:
-            print("Not enough of that item in the inventory.")
-    else:
-        print("Item not found in the inventory.")
+            print("Item not found in the inventory.")
+    except ValueError:
+        print("Try again, you entered a word not a number.") # Added try and except to add_item(), in case user types the words of the number instead of the number itself.
 
 # Function to view the current inventory.
 def view_inventory():
